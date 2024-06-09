@@ -7,15 +7,73 @@
     // 👉 CHALLENGE 1
     function profileActivation(profile, reason) {
 
-    }
+      if (profile.active && !reason) {
+        return "confirm status manually"
+      }
+
+
+      if (profile.active == true) {
+        profile.active = false
+        profile.reason = reason
+        return profile
+      } 
+
+      if (profile.active == false) {
+        profile.active = true
+        delete profile.reason
+        return profile
+        
+        
+
+      }
+      
+
+}
 
     // 👉 CHALLENGE 2
     function mineSweeper(grid, x, y) {
 
-    }
+      if ((x < 1 || x > 3) || (y < 1 || y > 3)) {
+        return "invalid coordinates"
+      }
+
+      const adjustedX = [x - 1]
+      const adjustedY = [y - 1]
+      //console.log(grid[adjustedY][adjustedX])
+
+      const kwadrat = grid[adjustedY][adjustedX]  
+
+      if (kwadrat === "🟥") {
+        return "🟥 💀"
+      } else {
+        return "🟦 🥳"
+      }
+
+
+       }
 
     // 👉 CHALLENGE 3
     function booleanize(obj) {
+
+      for (let i = 0; Object.keys(obj).length; i++) {
+        
+      
+
+
+        const wartosc = Object.keys(obj)[i]
+        console.log(Object.keys(obj).find(key => obj[key] === wartosc))
+
+        if (wartosc == 0 || wartosc == "0") {
+          Object.keys(obj)[i] == false
+        }
+       
+
+
+        
+return
+      }
+
+      
 
     }
 
