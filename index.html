@@ -122,15 +122,17 @@ return obj
     function scrub(text, forbidden) {
 
 
-      const czystaKoza = /[.,\/#!$%\^&\*;:{}=\-_`~()]/g;
+      const regx = /[.,\/#!$%\^&\*;:{}=\-_`~()]/g;
 
-      console.log(czystaKoza)
+      //console.log("text", text)
 
-      const newKoza = text.replace(czystaKoza, "");
+      const newRegx = text.replace(/[.,\/#!$%\^&\*;:{}=\-_`~()]/g, "");
 
-      console.log(newKoza)
+      //console.log(newRegx)
 
-      return newKoza
+      console.log("forbidden", forbidden)
+
+      
 
       
 
@@ -138,12 +140,37 @@ return obj
 
       if (!text || forbidden.length === 0) {
 
-        return text
+        return newRegx
+      }
+
+      const textarray = newRegx.split(" ")
+      console.log(textarray)
+
+      
+
+
+
+
+
+      for (i = 0; i < textarray.length; i++) {
+        const wyraz = textarray[i]
+        const dlugoscWyrazu = wyraz.length
+        const posiadaWyraz = forbidden.includes(wyraz)
+        if (posiadaWyraz) {
+          textarray[i] = textarray[i].replace(/./g, 'x')
+          
+
+        }
+
+
+
+
       }
       
 
-      
-     
+      // Zastąp każde słowo w `tekście` zawartym w tablicy `zabronione` ciągiem znaków "x" o długości równej długości słowa zabronionego.
+     const rezultat = textarray.toString()
+     return rezultat.replace(/[.,\/#!$%\^&\*;:{}=\-_`~()]/g, " ")
 
 
     }
