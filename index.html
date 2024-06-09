@@ -55,30 +55,96 @@
     // 👉 CHALLENGE 3
     function booleanize(obj) {
 
-      for (let i = 0; Object.keys(obj).length; i++) {
+//       for (let i = 0; Object.keys(obj).length; i++) {
         
       
 
 
-        const wartosc = Object.keys(obj)[i]
-        console.log(Object.keys(obj).find(key => obj[key] === wartosc))
+//         const wartosc = Object.keys(obj)[i]
+//         console.log(Object.keys(obj).find(key => obj[key] === wartosc))
 
-        if (wartosc == 0 || wartosc == "0") {
-          Object.keys(obj)[i] == false
-        }
+//         if (wartosc == 0 || wartosc == "0") {
+//           Object.keys(obj)[i] == false
+//         }
        
 
 
         
-return
-      }
+// return
+//       }
+for (let key in obj) {
 
-      
+  //console.log("objekt", obj)
+  //console.log("nazwijklucz", key)
+  
+  const wartosc = obj[key]
+  
 
-    }
+  if (wartosc == 0 || wartosc == "0") {
+    obj[key] = false
+    
+
+
+ // console.log("klucz", key)
+  //console.log("wartosc klucza", obj[key])
+} 
+
+if (wartosc == 1 || wartosc == "1") {
+  
+  obj[key] = true
+  
+ 
+}
+if (wartosc === null) {
+  delete obj[key]
+  
+}
+
+//console.log("objekte", obj) 
+
+if (key.length > 9) {
+ // console.log("key powyzej 9 znaczkow pocztowych", key)
+  return "shorten all prop names to 9 chars or less"
+}
+
+
+
+
+
+
+ }
+ 
+return obj
+
+  }
 
     // 👉 CHALLENGE 4
     function scrub(text, forbidden) {
+
+
+      const czystaKoza = /[.,\/#!$%\^&\*;:{}=\-_`~()]/g;
+
+      console.log(czystaKoza)
+
+      const newKoza = text.replace(czystaKoza, "");
+
+      console.log(newKoza)
+
+      return newKoza
+
+      
+
+
+
+      if (!text || forbidden.length === 0) {
+
+        return text
+      }
+      
+
+      
+     
+
 
     }
 
